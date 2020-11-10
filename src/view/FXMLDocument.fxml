@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="210.0" prefWidth="320" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLDocumentController">
+    <children>
+        <Button fx:id="button" layoutX="247.0" layoutY="171.0" onAction="#handleButtonAction" text="Click Me!" />
+        <Label fx:id="label" layoutX="14.0" layoutY="175.0" minHeight="16" minWidth="69" />
+      <Button fx:id="buttonCreateFriend" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" onAction="#createFriend" text="Create" />
+      <Button fx:id="buttonRead" layoutX="35.0" layoutY="88.0" mnemonicParsing="false" onAction="#readFriend" text="Read" />
+      <Button fx:id="buttonUpdate" layoutX="35.0" layoutY="137.0" mnemonicParsing="false" onAction="#updateFriend" text="Update" />
+      <Button fx:id="buttonDelete" layoutX="116.0" layoutY="35.0" mnemonicParsing="false" onAction="#deleteFriend" text="Delete" />
+      <Button fx:id="buttonNameandId" layoutX="116.0" layoutY="101.0" mnemonicParsing="false" onAction="#readByNameId" text="Find By Name And ID" />
+      <Button fx:id="buttonNameContain" layoutX="116.0" layoutY="137.0" mnemonicParsing="false" onAction="#readByNameContaining" text="Find By Name Containing" />
+      <Button fx:id="buttonStatusName" layoutX="116.0" layoutY="69.0" mnemonicParsing="false" onAction="#readByStatusName" text="Find By Status and Name" />
+    </children>
+</AnchorPane>
