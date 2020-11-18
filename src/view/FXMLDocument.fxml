@@ -2,18 +2,43 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="210.0" prefWidth="320" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="651.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLDocumentController">
     <children>
-        <Button fx:id="button" layoutX="247.0" layoutY="171.0" onAction="#handleButtonAction" text="Click Me!" />
+        <Button fx:id="button" layoutX="328.0" layoutY="180.0" onAction="#handleButtonAction" text="Click Me!" />
         <Label fx:id="label" layoutX="14.0" layoutY="175.0" minHeight="16" minWidth="69" />
       <Button fx:id="buttonCreateFriend" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" onAction="#createFriend" text="Create" />
       <Button fx:id="buttonRead" layoutX="35.0" layoutY="88.0" mnemonicParsing="false" onAction="#readFriend" text="Read" />
       <Button fx:id="buttonUpdate" layoutX="35.0" layoutY="137.0" mnemonicParsing="false" onAction="#updateFriend" text="Update" />
-      <Button fx:id="buttonDelete" layoutX="116.0" layoutY="35.0" mnemonicParsing="false" onAction="#deleteFriend" text="Delete" />
-      <Button fx:id="buttonNameandId" layoutX="116.0" layoutY="101.0" mnemonicParsing="false" onAction="#readByNameId" text="Find By Name And ID" />
-      <Button fx:id="buttonNameContain" layoutX="116.0" layoutY="137.0" mnemonicParsing="false" onAction="#readByNameContaining" text="Find By Name Containing" />
-      <Button fx:id="buttonStatusName" layoutX="116.0" layoutY="69.0" mnemonicParsing="false" onAction="#readByStatusName" text="Find By Status and Name" />
+      <Button fx:id="buttonDelete" layoutX="290.0" layoutY="35.0" mnemonicParsing="false" onAction="#deleteFriend" text="Delete" />
+      <Button fx:id="buttonNameandId" layoutX="237.0" layoutY="101.0" mnemonicParsing="false" onAction="#readByNameId" text="Find By Name And ID" />
+      <Button fx:id="buttonNameContain" layoutX="226.0" layoutY="137.0" mnemonicParsing="false" onAction="#readByNameContaining" text="Find By Name Containing" />
+      <Button fx:id="buttonStatusName" layoutX="216.0" layoutY="69.0" mnemonicParsing="false" onAction="#readByStatusName" text="Find By Status and Name" />
+      <Line endX="257.0" layoutX="167.0" layoutY="222.0" startX="-167.0" />
+      <Label layoutX="11.0" layoutY="231.0" text="Search Friends">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="268.0" text="By Name:" />
+      <TextField fx:id="textboxName" layoutX="73.0" layoutY="263.0" prefHeight="27.0" prefWidth="217.0" promptText="Enter Student Name" />
+      <Button layoutX="297.0" layoutY="264.0" mnemonicParsing="false" onAction="#searchByNameAction" text="Search" />
+      <Button layoutX="297.0" layoutY="296.0" mnemonicParsing="false" onAction="#searchByNameAdvancedAction" prefHeight="27.0" prefWidth="115.0" text="Advanced Search" />
+      <Button layoutX="149.0" layoutY="613.0" mnemonicParsing="false" onAction="#actionShowDetailsInPlace" prefHeight="27.0" prefWidth="154.0" text="Show Details In-Place" />
+      <Button layoutX="325.0" layoutY="614.0" mnemonicParsing="false" onAction="#actionShowDetails" text="Show Details" />
+      <TableView fx:id="friendTable" editable="true" layoutX="5.0" layoutY="340.0" prefHeight="274.0" prefWidth="412.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="340.0">
+         <columns>
+            <TableColumn fx:id="friendID" prefWidth="87.0" text="ID" />
+            <TableColumn fx:id="friendName" prefWidth="158.0" text="Name" />
+            <TableColumn fx:id="friendStatus" prefWidth="166.0" text="Status" />
+            <TableColumn fx:id="friendNotes" prefWidth="166.0" text="Notes" />
+         </columns>
+      </TableView>
     </children>
 </AnchorPane>
