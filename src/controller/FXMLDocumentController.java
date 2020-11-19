@@ -158,15 +158,41 @@ public class FXMLDocumentController implements Initializable {
 
     }
     
+   @FXML
+    void actionShowDetails(ActionEvent event) throws IOException {
+        System.out.println("clicked");
+
+        
+        // pass currently selected model
+        Friendmodel selectedStudent = friendTable.getSelectionModel().getSelectedItem();
+        
+        // fxml loader
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DetailModelView.fxml"));
+
+        // load the ui elements
+        Parent detailedModelView = loader.load();
+
+        // load the scene
+        Scene tableViewScene = new Scene(detailedModelView);
+
+        //access the detailedControlled and call a method
+        DetailModelController detailedControlled = loader.getController();
+
+
+        detailedControlled.initData(selectedStudent);
+
+        // create a new state
+        Stage stage = new Stage();
+        stage.setScene(tableViewScene);
+        stage.show();
+    }   
+    
   @FXML
     void actionShowDetailsInPlace(ActionEvent event) throws IOException {
 
     }
     
-   @FXML
-    void actionShowDetails(ActionEvent event) throws IOException {
 
-    }
     
     public List<Friendmodel> readByName(String name) {
         Query query = manager.createNamedQuery("Friendmodel.findByName");
