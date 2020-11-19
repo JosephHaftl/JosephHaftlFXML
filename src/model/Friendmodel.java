@@ -32,6 +32,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Friendmodel.findByNameAndId", query = "SELECT f FROM Friendmodel f WHERE f.name = :name and f.id = :id" )
     , @NamedQuery(name = "Friendmodel.findByNameContaining", query = "SELECT f FROM Friendmodel f WHERE f.name LIKE :name")
     , @NamedQuery(name = "Friendmodel.findbyStatusAndName", query = "SELECT f FROM Friendmodel f WHERE f.status = :status and f.name = :name")
+    //quiz 4
+    , @NamedQuery(name = "Friendmodel.findByNameAdvanced", query = "SELECT f FROM Friendmodel f WHERE  LOWER(f.name) LIKE  CONCAT('%', LOWER(:name), '%')")    
         
    })     
 public class Friendmodel implements Serializable {

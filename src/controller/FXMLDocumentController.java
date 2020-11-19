@@ -132,7 +132,30 @@ public class FXMLDocumentController implements Initializable {
     
  @FXML
     void searchByNameAdvancedAction(ActionEvent event) {
-        
+        System.out.println("clicked");
+
+        // getting the name from input box        
+        String name = textboxName.getText();
+
+        // calling a db read operaiton, readByName
+        List<Friendmodel> friends = readByNameAdvanced(name);
+
+        // setting table data
+        //setTableData(students);
+        // add an alert
+        if (friends == null || friends.isEmpty()) {
+
+            // show an alert to inform user 
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Information Dialog Box");// line 2
+            alert.setHeaderText("This is header section to write heading");// line 3
+            alert.setContentText("No student");// line 4
+            alert.showAndWait(); // line 5
+        } else {
+            // setting table data
+            setTableData(friends);
+        }
+
     }
     
   @FXML
@@ -147,6 +170,21 @@ public class FXMLDocumentController implements Initializable {
     
     public List<Friendmodel> readByName(String name) {
         Query query = manager.createNamedQuery("Friendmodel.findByName");
+
+        // setting query parameter
+        query.setParameter("name", name);
+
+        // execute query
+        List<Friendmodel> friends = query.getResultList();
+        for (Friendmodel friend : friends) {
+            System.out.println(friend.getId() + " " + friend.getName() + " " + friend.getStatus() + " " + friend.getNotes());
+        }
+
+        return friends;
+    }
+    
+   public List<Friendmodel> readByNameAdvanced(String name) {
+        Query query = manager.createNamedQuery("Friendmodel.findByNameAdvanced");
 
         // setting query parameter
         query.setParameter("name", name);

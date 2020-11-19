@@ -32,7 +32,7 @@
       <Button layoutX="297.0" layoutY="296.0" mnemonicParsing="false" onAction="#searchByNameAdvancedAction" prefHeight="27.0" prefWidth="115.0" text="Advanced Search" />
       <Button layoutX="40.0" layoutY="728.0" mnemonicParsing="false" onAction="#actionShowDetailsInPlace" prefHeight="27.0" prefWidth="154.0" text="Show Details In-Place" />
       <Button layoutX="328.0" layoutY="729.0" mnemonicParsing="false" onAction="#actionShowDetails" text="Show Details" />
-      <TableView fx:id="friendTable" editable="true" layoutX="5.0" layoutY="340.0" prefHeight="369.0" prefWidth="685.0" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="340.0">
+      <TableView fx:id="friendTable" editable="true" layoutX="5.0" layoutY="329.0" prefHeight="380.0" prefWidth="827.0" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="87.0" AnchorPane.topAnchor="329.0">
          <columns>
             <TableColumn fx:id="friendID" prefWidth="173.0" text="ID" />
             <TableColumn fx:id="friendName" prefWidth="166.0" text="Name" />
