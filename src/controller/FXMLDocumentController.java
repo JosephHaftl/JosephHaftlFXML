@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -20,18 +21,21 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import model.Friendmodel;
-import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
+import model.Friendmodel;
 /**
  *
  * @author Joseph Haftl
@@ -58,9 +62,72 @@ public class FXMLDocumentController implements Initializable {
     private Button buttonDelete;
 
     //Quiz 4
+    
+     @FXML
+    private TextField textboxName;
+
+     
+    @FXML
+    private TableView<Friendmodel> friendTable;
+
+    @FXML
+    private TableColumn<Friendmodel, Integer> friendID;
+
+    @FXML
+    private TableColumn<Friendmodel, String> friendName;
+
+    @FXML
+    private TableColumn<Friendmodel, Boolean> friendStatus;
+
+    @FXML
+    private TableColumn<Friendmodel, String> friendNotes;
+
+
+
+    // the observable list of students that is used to insert data into the table
+    private ObservableList<Friendmodel> friendData;
+    
+ public void setTableData(List<Friendmodel> friendList) {
+
+        // initialize the studentData variable
+        friendData = FXCollections.observableArrayList();
+
+        // add the student objects to an observable list object for use with the GUI table
+        friendList.forEach(f -> {
+            friendData.add(f);
+        });
+
+        // set the the table items to the data in studentData; refresh the table
+        friendTable.setItems(friendData);
+        friendTable.refresh();
+        System.out.println("setTableData runs");
+    }   
+
  @FXML
     void searchByNameAction(ActionEvent event) {
     System.out.println("clicked");
+           
+
+        // getting the name from input box        
+        String name = textboxName.getText();
+
+        // calling a db read operaiton, readByName
+        List<Friendmodel> Friends = readByName(name);
+
+        if (Friends == null || Friends.isEmpty()) {
+
+            // show an alert to inform user 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog Box");// line 2
+            alert.setHeaderText("This is header section to write heading");// line 3
+            alert.setContentText("No friend");// line 4
+            alert.showAndWait(); // line 5
+        } else {
+
+            // setting table data
+            setTableData(Friends);
+        }
+
     }
     
  @FXML
@@ -77,6 +144,22 @@ public class FXMLDocumentController implements Initializable {
     void actionShowDetails(ActionEvent event) throws IOException {
 
     }
+    
+    public List<Friendmodel> readByName(String name) {
+        Query query = manager.createNamedQuery("Friendmodel.findByName");
+
+        // setting query parameter
+        query.setParameter("name", name);
+
+        // execute query
+        List<Friendmodel> friends = query.getResultList();
+        for (Friendmodel friend : friends) {
+            System.out.println(friend.getId() + " " + friend.getName() + " " + friend.getStatus() + " " + friend.getNotes());
+        }
+
+        return friends;
+    }
+    
     //End Quiz 4
     @FXML
     void createFriend(ActionEvent event) {
@@ -347,7 +430,17 @@ Scanner input = new Scanner(System.in);
         // loading students from database
         //database reference: "IntroJavaFXPU"
         manager = (EntityManager) Persistence.createEntityManagerFactory("JosephHaftlFXMLPU").createEntityManager();
+//quiz 4
+        friendName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        friendID.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        friendStatus.setCellValueFactory(new PropertyValueFactory<>("Status"));
+        friendNotes.setCellValueFactory(new PropertyValueFactory<>("Notes"));
+        
 
+        //eanble row selection
+        // (SelectionMode.MULTIPLE);
+        friendTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        
     }
         public void create(Friendmodel friend) {
         try {

@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="651.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="778.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLDocumentController">
     <children>
         <Button fx:id="button" layoutX="328.0" layoutY="180.0" onAction="#handleButtonAction" text="Click Me!" />
         <Label fx:id="label" layoutX="14.0" layoutY="175.0" minHeight="16" minWidth="69" />
@@ -30,14 +30,14 @@
       <TextField fx:id="textboxName" layoutX="73.0" layoutY="263.0" prefHeight="27.0" prefWidth="217.0" promptText="Enter Student Name" />
       <Button layoutX="297.0" layoutY="264.0" mnemonicParsing="false" onAction="#searchByNameAction" text="Search" />
       <Button layoutX="297.0" layoutY="296.0" mnemonicParsing="false" onAction="#searchByNameAdvancedAction" prefHeight="27.0" prefWidth="115.0" text="Advanced Search" />
-      <Button layoutX="149.0" layoutY="613.0" mnemonicParsing="false" onAction="#actionShowDetailsInPlace" prefHeight="27.0" prefWidth="154.0" text="Show Details In-Place" />
-      <Button layoutX="325.0" layoutY="614.0" mnemonicParsing="false" onAction="#actionShowDetails" text="Show Details" />
-      <TableView fx:id="friendTable" editable="true" layoutX="5.0" layoutY="340.0" prefHeight="274.0" prefWidth="412.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="340.0">
+      <Button layoutX="40.0" layoutY="728.0" mnemonicParsing="false" onAction="#actionShowDetailsInPlace" prefHeight="27.0" prefWidth="154.0" text="Show Details In-Place" />
+      <Button layoutX="328.0" layoutY="729.0" mnemonicParsing="false" onAction="#actionShowDetails" text="Show Details" />
+      <TableView fx:id="friendTable" editable="true" layoutX="5.0" layoutY="340.0" prefHeight="369.0" prefWidth="685.0" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="340.0">
          <columns>
-            <TableColumn fx:id="friendID" prefWidth="87.0" text="ID" />
-            <TableColumn fx:id="friendName" prefWidth="158.0" text="Name" />
-            <TableColumn fx:id="friendStatus" prefWidth="166.0" text="Status" />
-            <TableColumn fx:id="friendNotes" prefWidth="166.0" text="Notes" />
+            <TableColumn fx:id="friendID" prefWidth="173.0" text="ID" />
+            <TableColumn fx:id="friendName" prefWidth="166.0" text="Name" />
+            <TableColumn fx:id="friendStatus" prefWidth="185.0" text="Status" />
+            <TableColumn fx:id="friendNotes" prefWidth="264.0" text="Notes" />
          </columns>
       </TableView>
     </children>
