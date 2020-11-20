@@ -63,7 +63,9 @@ public class FXMLDocumentController implements Initializable {
 
     //Quiz 4
     
-     @FXML
+    
+    //taken from scenebuilder
+    @FXML
     private TextField textboxName;
 
      
@@ -84,9 +86,9 @@ public class FXMLDocumentController implements Initializable {
 
 
 
-    // the observable list of students that is used to insert data into the table
+    //Used the IntroJavaFX Demo for the parts below
     private ObservableList<Friendmodel> friendData;
-    
+  //Used the IntroJavaFX Demo for the parts below  
  public void setTableData(List<Friendmodel> friendList) {
 
         // initialize the studentData variable
@@ -102,8 +104,8 @@ public class FXMLDocumentController implements Initializable {
         friendTable.refresh();
         System.out.println("setTableData runs");
     }   
-
- @FXML
+//Used the IntroJavaFX Demo for the parts below
+    @FXML
     void searchByNameAction(ActionEvent event) {
     System.out.println("clicked");
            
@@ -129,7 +131,7 @@ public class FXMLDocumentController implements Initializable {
         }
 
     }
-    
+//Used the IntroJavaFX Demo for the parts below    
  @FXML
     void searchByNameAdvancedAction(ActionEvent event) {
         System.out.println("clicked");
@@ -157,7 +159,7 @@ public class FXMLDocumentController implements Initializable {
         }
 
     }
-    
+   //Used the IntroJavaFX Demo for the parts below 
    @FXML
     void actionShowDetails(ActionEvent event) throws IOException {
         System.out.println("clicked");
@@ -186,7 +188,7 @@ public class FXMLDocumentController implements Initializable {
         stage.setScene(tableViewScene);
         stage.show();
     }   
-    
+    //Used the IntroJavaFX Demo for the parts below
   @FXML
     void actionShowDetailsInPlace(ActionEvent event) throws IOException {
         System.out.println("clicked");
@@ -222,7 +224,7 @@ public class FXMLDocumentController implements Initializable {
         stage.show();
     }
     
-
+//Used the IntroJavaFX Demo for the parts below
     
     public List<Friendmodel> readByName(String name) {
         Query query = manager.createNamedQuery("Friendmodel.findByName");
@@ -238,7 +240,7 @@ public class FXMLDocumentController implements Initializable {
 
         return friends;
     }
-    
+    //Used the IntroJavaFX Demo for the parts below
    public List<Friendmodel> readByNameAdvanced(String name) {
         Query query = manager.createNamedQuery("Friendmodel.findByNameAdvanced");
 

@@ -21,7 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Friendmodel;
 
-
+//Used the IntroJavaFX Demo for the parts below
 public class DetailModelController {
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -41,7 +41,8 @@ public class DetailModelController {
     @FXML // fx:id="image"
     private ImageView image; // Value injected by FXMLLoader
 
-    // going back to previous scene    
+    // going back to previous scene  
+    //Used the IntroJavaFX Demo for the parts below
     @FXML
     void backButtonAction(ActionEvent event) {
         // option 1: get current stage -- from event
@@ -58,13 +59,13 @@ public class DetailModelController {
 
     Friendmodel selectedModel;
     Scene previousScene;
-
+//Used the IntroJavaFX Demo for the parts below
     public void setPreviousScene(Scene scene) {
         previousScene = scene;
         backButton.setDisable(false);
 
     }
-
+//Used the IntroJavaFX Demo for the parts below
     public void initData(Friendmodel model) {
         selectedModel = model;
         labelID.setText(model.getId().toString());
@@ -80,7 +81,7 @@ public class DetailModelController {
             System.out.println(ex.getMessage());
         }
     }
-
+//Used the IntroJavaFX Demo for the parts below
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert backButton != null : "fx:id=\"backButtong\" was not injected: check your FXML file 'DetailModelView.fxml'.";
